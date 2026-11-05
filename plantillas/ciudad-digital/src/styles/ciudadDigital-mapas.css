@@ -1,0 +1,124 @@
+/* Solo para apps con mapas (Leaflet / MapLibre). Importar después de ciudadDigital.css.
+   Fuente: MapaInteractivo/src/styles/ciudadDigital.css */
+
+/* ---------- Leaflet con tokens (popups, controles, atribución) ---------- */
+.leaflet-container {
+  font-family: var(--cd-font);
+  background: var(--cd-superficie-alt);
+}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: var(--cd-surface);
+  color: var(--cd-text);
+  box-shadow: var(--cd-sombra-md);
+}
+.leaflet-popup-content-wrapper {
+  border-radius: var(--cd-radio-md);
+  border: 1px solid var(--cd-border);
+}
+.leaflet-popup-content {
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+.leaflet-container a.leaflet-popup-close-button {
+  color: var(--cd-text-3);
+}
+.leaflet-bar,
+.leaflet-touch .leaflet-bar {
+  border: 1px solid var(--cd-border);
+  border-radius: var(--cd-radio-sm);
+  box-shadow: var(--cd-sombra-sm);
+  overflow: hidden;
+}
+.leaflet-bar a,
+.leaflet-bar a:hover {
+  background-color: var(--cd-surface);
+  color: var(--cd-text);
+  border-bottom-color: var(--cd-border);
+}
+.leaflet-bar a:hover {
+  background-color: var(--cd-hover);
+}
+.leaflet-bar a.leaflet-disabled {
+  background-color: var(--cd-superficie-alt);
+  color: var(--cd-text-3);
+}
+/* leaflet-draw usa sprites oscuros: en modo nocturno se invierten */
+[data-tema="oscuro"] .leaflet-draw-toolbar a {
+  background-color: #e5e7eb;
+}
+.leaflet-draw-actions a {
+  background: var(--cd-accent);
+  color: #fff;
+  font-family: var(--cd-font);
+}
+.leaflet-draw-actions a:hover {
+  background: var(--cd-accent-fuerte);
+}
+.leaflet-draw-tooltip {
+  background: var(--cd-vidrio);
+  color: var(--cd-text);
+  border: 1px solid var(--cd-border);
+  font-family: var(--cd-font);
+}
+.leaflet-draw-tooltip::before {
+  border-right-color: var(--cd-vidrio);
+}
+[data-tema="oscuro"] .leaflet-control-attribution {
+  background: rgba(17, 26, 43, 0.7);
+  color: var(--cd-text-3);
+}
+[data-tema="oscuro"] .leaflet-control-attribution a {
+  color: var(--cd-accent-fuerte);
+}
+
+/* ---------- MapLibre (vista 3D): controles y popups con tokens ---------- */
+/* Solo la interfaz alrededor de la escena; cielo, luces y edificios no se tocan. */
+.maplibregl-ctrl-group:not(:empty) {
+  background: var(--cd-surface);
+  border: 1px solid var(--cd-border);
+}
+.maplibregl-ctrl-group button + button {
+  border-top-color: var(--cd-border);
+}
+.maplibregl-ctrl-group button:not(:disabled):hover {
+  background-color: var(--cd-hover);
+}
+[data-tema="oscuro"] .maplibregl-ctrl-group .maplibregl-ctrl-icon {
+  filter: invert(1);
+}
+.maplibregl-popup-content {
+  background: var(--cd-surface);
+  color: var(--cd-text);
+  font-family: var(--cd-font);
+}
+.maplibregl-popup-anchor-top .maplibregl-popup-tip,
+.maplibregl-popup-anchor-top-left .maplibregl-popup-tip,
+.maplibregl-popup-anchor-top-right .maplibregl-popup-tip {
+  border-bottom-color: var(--cd-surface);
+}
+.maplibregl-popup-anchor-bottom .maplibregl-popup-tip,
+.maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip,
+.maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip {
+  border-top-color: var(--cd-surface);
+}
+.maplibregl-popup-anchor-left .maplibregl-popup-tip {
+  border-right-color: var(--cd-surface);
+}
+.maplibregl-popup-anchor-right .maplibregl-popup-tip {
+  border-left-color: var(--cd-surface);
+}
+.maplibregl-popup-close-button {
+  color: var(--cd-text-3);
+}
+[data-tema="oscuro"] .maplibregl-ctrl-attrib,
+[data-tema="oscuro"] .maplibregl-ctrl-scale {
+  background-color: rgba(17, 26, 43, 0.7);
+  color: var(--cd-text-3);
+}
+[data-tema="oscuro"] .maplibregl-ctrl-attrib a {
+  color: var(--cd-accent-fuerte);
+}
+[data-tema="oscuro"] .maplibregl-ctrl-attrib-button {
+  filter: invert(1);
+}

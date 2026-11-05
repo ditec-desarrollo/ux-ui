@@ -1,0 +1,4 @@
+.navSkeleton {
+    background: var(--cd-vidrio) !important;
+    border-bottom: 1px solid var(--cd-border);
+}

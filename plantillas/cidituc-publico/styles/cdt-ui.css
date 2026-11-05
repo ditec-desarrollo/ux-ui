@@ -1,0 +1,594 @@
+/* =========================================================
+   CiDiTuc UI — sistema de diseño compartido (estilo Apple)
+   Tokens, botones, campos de formulario y modales.
+   Lo usan el landing (.cdt), Login y Registro (.cdt-page)
+   y los modales de react-bootstrap (.cdt-modal).
+   ========================================================= */
+
+.cdt,
+.cdt-page,
+.cdt-modal {
+    /* Paleta: azul característico + neutros Apple */
+    --cdt-blue: #1f89f6;
+    --cdt-blue-light: #2eb1ff;
+    --cdt-blue-deep: #0a6fd8;
+    --cdt-blue-hover: #3b98f8;
+    --cdt-ink: #1d1d1f;
+    --cdt-ink-2: #6e6e73;
+    --cdt-ink-3: #86868b;
+    --cdt-bg: #ffffff;
+    --cdt-bg-alt: #f5f5f7;
+    --cdt-fill: #e8e8ed;
+    --cdt-hairline: #d2d2d7;
+    --cdt-nav: rgba(22, 22, 23, 0.8);
+    --cdt-danger: #e30000;
+
+    --cdt-radius-xl: 28px;
+    --cdt-radius-lg: 18px;
+    --cdt-radius-md: 14px;
+    --cdt-radius-sm: 12px;
+    --cdt-pill: 980px;
+
+    --cdt-ease: cubic-bezier(0.28, 0.11, 0.32, 1);
+    --cdt-ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+    --cdt-font: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.cdt-page {
+    min-height: 100dvh;
+    font-family: var(--cdt-font);
+    color: var(--cdt-ink);
+    background: var(--cdt-bg-alt);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+.cdt-page *,
+.cdt-modal,
+.cdt-modal * {
+    font-family: var(--cdt-font);
+}
+
+/* ---------- Botones y enlaces ---------- */
+
+.cdt-btn {
+    appearance: none;
+    -webkit-appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 44px;
+    padding: 10px 22px;
+    border: 0;
+    border-radius: var(--cdt-pill);
+    background: var(--cdt-blue);
+    color: #fff;
+    font-size: 17px;
+    line-height: 1.2;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.25s var(--cdt-ease),
+        transform 0.25s var(--cdt-ease), box-shadow 0.25s var(--cdt-ease),
+        opacity 0.25s var(--cdt-ease), color 0.25s var(--cdt-ease);
+}
+
+.cdt-btn:hover {
+    background: var(--cdt-blue-hover);
+    color: #fff;
+}
+
+.cdt-btn:active {
+    transform: scale(0.98);
+}
+
+.cdt-btn:focus-visible {
+    outline: 3px solid rgba(31, 137, 246, 0.45);
+    outline-offset: 2px;
+}
+
+.cdt-btn:disabled,
+.cdt-btn[disabled] {
+    opacity: 0.45;
+    cursor: default;
+    transform: none;
+}
+
+.cdt-btn--lg {
+    min-height: 52px;
+    padding: 13px 30px;
+    font-size: 19px;
+}
+
+.cdt-btn--sm {
+    min-height: 0;
+    padding: 5px 13px;
+    font-size: 12px;
+}
+
+.cdt-btn--block {
+    width: 100%;
+}
+
+.cdt-btn--white {
+    background: #fff;
+    color: var(--cdt-blue-deep);
+}
+
+.cdt-btn--white:hover {
+    background: #f5f5f7;
+    color: var(--cdt-blue-deep);
+}
+
+.cdt-btn--secondary {
+    background: var(--cdt-fill);
+    color: var(--cdt-ink);
+}
+
+.cdt-btn--secondary:hover {
+    background: #dededf;
+    color: var(--cdt-ink);
+}
+
+.cdt-btn--danger {
+    background: var(--cdt-fill);
+    color: var(--cdt-danger);
+}
+
+.cdt-btn--danger:hover {
+    background: #dededf;
+    color: var(--cdt-danger);
+}
+
+.cdt-btn--icon {
+    width: 44px;
+    min-height: 44px;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.cdt-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 19px;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    color: var(--cdt-blue-deep);
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    padding: 0;
+    transition: color 0.25s var(--cdt-ease);
+}
+
+.cdt-link svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s var(--cdt-ease);
+}
+
+.cdt-link:hover {
+    color: var(--cdt-blue);
+    text-decoration: underline;
+}
+
+.cdt-link:hover svg {
+    transform: translateX(3px);
+}
+
+.cdt-link--sm {
+    font-size: 14px;
+}
+
+/* ---------- Campos con etiqueta flotante (Login) ---------- */
+
+.cdt-field-group {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--cdt-radius-sm);
+    background: #fff;
+}
+
+.cdt-field {
+    position: relative;
+}
+
+.cdt-field input {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 56px;
+    padding: 24px 48px 8px 16px;
+    border: 1px solid var(--cdt-hairline);
+    border-radius: var(--cdt-radius-sm);
+    background: #fff;
+    color: var(--cdt-ink);
+    font-size: 17px;
+    letter-spacing: -0.022em;
+    outline: none;
+    transition: border-color 0.25s var(--cdt-ease), box-shadow 0.25s var(--cdt-ease);
+}
+
+.cdt-field-group .cdt-field:not(:first-child) input {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: -1px;
+}
+
+.cdt-field-group .cdt-field:not(:last-child) input {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.cdt-field input:focus {
+    position: relative;
+    z-index: 1;
+    border-color: var(--cdt-blue);
+    box-shadow: 0 0 0 4px rgba(31, 137, 246, 0.2);
+}
+
+.cdt-field label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 17px;
+    letter-spacing: -0.022em;
+    color: var(--cdt-ink-3);
+    pointer-events: none;
+    transition: transform 0.25s var(--cdt-ease), font-size 0.25s var(--cdt-ease),
+        color 0.25s var(--cdt-ease), top 0.25s var(--cdt-ease);
+    z-index: 2;
+}
+
+.cdt-field input:focus ~ label,
+.cdt-field input:not(:placeholder-shown) ~ label {
+    top: 10px;
+    transform: none;
+    font-size: 12px;
+    color: var(--cdt-ink-2);
+}
+
+.cdt-field__eye {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--cdt-ink-3);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    z-index: 3;
+    transition: background-color 0.25s var(--cdt-ease), color 0.25s var(--cdt-ease);
+}
+
+.cdt-field__eye:hover {
+    background: var(--cdt-bg-alt);
+    color: var(--cdt-ink);
+}
+
+/* ---------- Formularios de Bootstrap dentro de .cdt-page / .cdt-modal ---------- */
+
+.cdt-page .form-label,
+.cdt-modal .form-label {
+    font-size: 13px;
+    line-height: 1.3;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--cdt-ink);
+    margin-bottom: 6px;
+}
+
+.cdt-page .form-label strong,
+.cdt-modal .form-label strong {
+    font-weight: 600;
+}
+
+.cdt-page .form-control,
+.cdt-page .form-select,
+.cdt-modal .form-control,
+.cdt-modal .form-select {
+    min-height: 48px;
+    padding: 10px 14px;
+    border: 1px solid var(--cdt-hairline) !important;
+    border-radius: var(--cdt-radius-sm);
+    background-color: #fff;
+    color: var(--cdt-ink);
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    box-shadow: none;
+    transition: border-color 0.25s var(--cdt-ease), box-shadow 0.25s var(--cdt-ease),
+        background-color 0.25s var(--cdt-ease);
+}
+
+.cdt-page .form-control::placeholder,
+.cdt-modal .form-control::placeholder {
+    color: var(--cdt-ink-3);
+}
+
+.cdt-page .form-control:focus,
+.cdt-page .form-select:focus,
+.cdt-modal .form-control:focus,
+.cdt-modal .form-select:focus {
+    border-color: var(--cdt-blue) !important;
+    box-shadow: 0 0 0 4px rgba(31, 137, 246, 0.2);
+    outline: none;
+}
+
+.cdt-page .form-control:disabled,
+.cdt-page .form-select:disabled,
+.cdt-modal .form-control:disabled {
+    background-color: var(--cdt-bg-alt);
+    color: var(--cdt-ink-3);
+    border-color: #e5e5ea !important;
+}
+
+.cdt-page .form-check-input {
+    width: 20px;
+    height: 20px;
+    margin-top: 0;
+    border: 1.5px solid var(--cdt-hairline) !important;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s var(--cdt-ease), border-color 0.2s var(--cdt-ease),
+        box-shadow 0.2s var(--cdt-ease);
+}
+
+.cdt-page .form-check-input:checked {
+    background-color: var(--cdt-blue);
+    border-color: var(--cdt-blue) !important;
+}
+
+.cdt-page .form-check-input:focus {
+    box-shadow: 0 0 0 4px rgba(31, 137, 246, 0.2);
+}
+
+.cdt-page .form-check-label {
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    color: var(--cdt-ink);
+    cursor: pointer;
+}
+
+.cdt-page .form-check-label a,
+.cdt-page .text-blue {
+    color: var(--cdt-blue-deep);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.cdt-page .form-check-label a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Barra superior oscura (Registro) ---------- */
+
+.cdt-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 48px;
+    background: var(--cdt-nav);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+}
+
+.cdt-topbar__inner {
+    max-width: 1024px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cdt-topbar__logo {
+    height: 30px;
+    width: auto;
+    display: block;
+}
+
+.cdt-topbar__link {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s var(--cdt-ease);
+}
+
+.cdt-topbar__link:hover {
+    color: #fff;
+}
+
+/* ---------- Modales de react-bootstrap ---------- */
+
+.cdt-modal .modal-content {
+    border: 0;
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+}
+
+.cdt-modal .modal-header {
+    border: 0;
+    padding: 28px 28px 8px;
+    align-items: flex-start;
+}
+
+.cdt-modal .modal-title {
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--cdt-ink);
+}
+
+.cdt-modal .btn-close {
+    margin: -4px -8px 0 auto;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: var(--cdt-fill);
+    background-size: 10px;
+    opacity: 1;
+    transition: background-color 0.25s var(--cdt-ease);
+}
+
+.cdt-modal .btn-close:hover {
+    background-color: #dededf;
+}
+
+.cdt-modal .modal-body {
+    padding: 8px 28px 16px;
+    font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    color: var(--cdt-ink);
+}
+
+.cdt-modal .modal-body form {
+    margin: 0 !important;
+    padding: 8px 0 0 !important;
+}
+
+.cdt-modal .modal-body h3 {
+    font-size: 17px;
+    line-height: 1.45;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: var(--cdt-ink);
+    margin: 0;
+}
+
+.cdt-modal .modal-body h6 {
+    font-size: 12px;
+    line-height: 1.3;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cdt-blue);
+    margin: 14px 0 6px;
+}
+
+.cdt-modal .modal-body h6:first-child {
+    margin-top: 0;
+}
+
+.cdt-modal .modal-body p {
+    color: var(--cdt-ink);
+}
+
+.cdt-modal .modal-body .cdt-muted {
+    color: var(--cdt-ink-2);
+}
+
+.cdt-modal .modal-footer {
+    border: 0;
+    padding: 8px 28px 28px;
+    gap: 10px;
+}
+
+.cdt-modal .modal-footer:empty {
+    padding: 0 0 12px;
+}
+
+.cdt-modal .modal-footer > * {
+    margin: 0;
+}
+
+.cdt-modal__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.cdt-modal__hint {
+    text-align: center;
+    font-size: 14px;
+    color: var(--cdt-ink-2);
+    padding: 0 28px 16px;
+    margin: 0;
+}
+
+.cdt-modal__hint a,
+.cdt-modal__hint .punteroMouse {
+    color: var(--cdt-blue-deep);
+    cursor: pointer;
+    margin: 0;
+}
+
+.cdt-modal__hint a:hover,
+.cdt-modal__hint .punteroMouse:hover {
+    color: var(--cdt-blue);
+    text-decoration: underline;
+}
+
+.cdt-modal__backdrop.show {
+    opacity: 0.45;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cdt-btn,
+    .cdt-link,
+    .cdt-field input,
+    .cdt-field label {
+        transition-duration: 0.001s !important;
+    }
+}
+
+/* ---------- Botón "Volver" ---------- */
+
+.cdt-backlink {
+    appearance: none;
+    -webkit-appearance: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 6px 14px 6px 8px;
+    border: 0;
+    border-radius: var(--cdt-pill);
+    background: transparent;
+    color: var(--cdt-ink-2);
+    font-size: 15px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    transition: background-color 0.25s var(--cdt-ease), color 0.25s var(--cdt-ease);
+}
+
+.cdt-backlink svg {
+    width: 20px;
+    height: 20px;
+}
+
+.cdt-backlink:hover {
+    background: var(--cdt-fill);
+    color: var(--cdt-ink);
+}
+
+.cdt-backlink:focus-visible {
+    outline: 3px solid rgba(31, 137, 246, 0.45);
+    outline-offset: 2px;
+}
+
+.cdt-topbar .cdt-backlink {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+}
+
+.cdt-topbar .cdt-backlink:hover {
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+}

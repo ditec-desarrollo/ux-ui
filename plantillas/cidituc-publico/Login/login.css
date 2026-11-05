@@ -1,0 +1,164 @@
+@import "../../styles/cdt-ui.css";
+
+/* =========================================================
+   Login — tarjeta centrada estilo "Iniciar sesión" de Apple
+   ========================================================= */
+
+.cdt-auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 20px;
+    background: radial-gradient(
+            1200px 600px at 50% -10%,
+            rgba(31, 137, 246, 0.14),
+            rgba(31, 137, 246, 0) 70%
+        ),
+        var(--cdt-bg-alt);
+}
+
+.cdt-auth__card {
+    width: 100%;
+    max-width: 440px;
+    background: #fff;
+    border-radius: var(--cdt-radius-xl);
+    padding: 48px 40px 36px;
+    box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: cdtAuthIn 0.7s var(--cdt-ease-out) both;
+}
+
+.cdt-auth__logo {
+    width: 84px;
+    height: 84px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.cdt-auth__title {
+    font-size: 28px;
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--cdt-ink);
+    text-align: center;
+    margin: 0;
+}
+
+.cdt-auth__subtitle {
+    font-size: 15px;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: var(--cdt-ink-2);
+    text-align: center;
+    margin: 8px 0 0;
+}
+
+.cdt-auth__form {
+    width: 100%;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cdt-auth__form .cdt-field-group {
+    margin-bottom: 8px;
+}
+
+.cdt-auth__help {
+    margin: 16px 0 0;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: var(--cdt-ink-2);
+}
+
+.cdt-auth__help a,
+.cdt-auth__links a {
+    color: var(--cdt-blue-deep);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.25s var(--cdt-ease);
+}
+
+.cdt-auth__help a:hover,
+.cdt-auth__links a:hover {
+    color: var(--cdt-blue);
+    text-decoration: underline;
+}
+
+.cdt-auth__help strong {
+    font-weight: 600;
+}
+
+.cdt-auth__links {
+    display: flex;
+    justify-content: center;
+    gap: 8px 20px;
+    flex-wrap: wrap;
+    margin: 4px 0 0;
+    font-size: 13px;
+    letter-spacing: -0.01em;
+}
+
+.cdt-auth__copy {
+    margin: 28px 0 0;
+    font-size: 12px;
+    text-align: center;
+    color: var(--cdt-ink-3);
+}
+
+.cdt-auth__contact {
+    margin: 20px 0 0;
+    font-size: 12px;
+    color: var(--cdt-ink-2);
+    text-align: center;
+}
+
+@keyframes cdtAuthIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.985);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .cdt-auth {
+        padding: 24px 16px;
+    }
+
+    .cdt-auth__card {
+        padding: 36px 24px 28px;
+        border-radius: var(--cdt-radius-lg);
+    }
+
+    .cdt-auth__title {
+        font-size: 24px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cdt-auth__card {
+        animation: none;
+    }
+}
+
+/* Botón "Volver" arriba a la izquierda */
+.cdt-auth {
+    position: relative;
+}
+
+.cdt-auth__back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}

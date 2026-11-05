@@ -1,0 +1,7 @@
+.bodyGraf {
+  width: 80vw;
+  height: 80vh;
+  margin-left: 0 !important;
+  background-color: var(--cd-surface);
+  max-width: 1339px !important;
+}
