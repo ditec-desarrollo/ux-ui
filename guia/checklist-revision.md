@@ -21,6 +21,7 @@ Pasalo antes de dar por terminada la migración. Revisá cada punto en el navega
 - [ ] Los botones son de MUI (`Button`/`IconButton`), sin `btn btn-primary` de Bootstrap mezclados.
 - [ ] Los modales tienen radio 20 y fondo desenfocado, y en mobile no se salen de la pantalla.
 - [ ] Todas las alertas usan `common/alerta.js` y aparecen por encima de los modales.
+- [ ] Las confirmaciones de borrado usan `confirmarBorrado`: "Eliminar" en rojo y "Cancelar" neutro.
 - [ ] Las cargas muestran `Skeleton`, no texto "Cargando…" ni spinners sueltos.
 
 ## Modo oscuro

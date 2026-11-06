@@ -89,7 +89,7 @@ Pegá cada prompt en Claude, **en orden**, y revisá la app en el navegador ante
 - **Azul principal:** `#1f89f6` (hover `#0b63c9`). Fondo `#f4f6fb`, texto `#0f172a`.
 - **Nunca** colores sueltos en el código: usar `var(--cd-…)` en CSS o `theme.palette` en MUI.
 - **Logo del header:** `recursos/logos/logoMuni-sm.png`, 36 px de alto, con dos palabras de marca (`MOVILIDAD` / `Urbana`).
-- Alertas siempre con `common/alerta.js`, no importando `sweetalert2` directo.
+- Alertas siempre con `common/alerta.js`, no importando `sweetalert2` directo. Para borrar, `confirmarBorrado()` ("Eliminar" en rojo).
 - Cambios **solo visuales**: no tocar lógica, endpoints ni rutas.
 
 Todo el detalle está en [guia/sistema-de-diseno.md](guia/sistema-de-diseno.md).

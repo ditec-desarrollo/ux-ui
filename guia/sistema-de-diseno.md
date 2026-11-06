@@ -185,6 +185,7 @@ const estiloModal = {
 ### Alertas
 - Usar [`common/alerta.js`](../plantillas/ciudad-digital/src/common/alerta.js): `import Swal from "../common/alerta"` y después `Swal.fire({...})`, igual que siempre.
 - Así las alertas toman los colores de los tokens, aparecen por encima de los modales de MUI (`z-index 1500`) y respetan el modo oscuro.
+- **Confirmaciones de borrado**: usar `confirmarBorrado` de `alerta.js` (`import { confirmarBorrado } from "../common/alerta"`). El botón "Eliminar" sale en **rojo** (`--cd-peligro`), "Cancelar" en gris y el foco queda en "Cancelar". Es la única excepción a los colores del mixin; no se escriben `confirmButtonColor`/`cancelButtonColor` a mano en cada llamada.
 
 ### Carga
 - Mostrar `Skeleton` de MUI con la forma de lo que se va a cargar, en vez de spinners. Los componentes están en [`components/Esqueletos`](../plantillas/ciudad-digital/src/components/Esqueletos).

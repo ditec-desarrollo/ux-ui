@@ -413,6 +413,19 @@ export function crearTema(modo = "light") {
         styleOverrides: {
           root: { borderRadius: 12 },
           filled: { fontWeight: 500 },
+          // En modo oscuro MUI calcula el texto de los Alert "standard" y "outlined" a partir de
+          // palette.*.light, que acá es un fondo semitransparente (rgba .16/.18) y deja el texto casi invisible.
+          // Se usa el texto del tema y el color principal para el ícono.
+          ...(modo === "dark" && {
+            standard: ({ ownerState, theme }) => ({
+              color: t.texto,
+              "& .MuiAlert-icon": { color: theme.palette[ownerState.severity ?? "success"].main },
+            }),
+            outlined: ({ ownerState, theme }) => ({
+              color: t.texto,
+              "& .MuiAlert-icon": { color: theme.palette[ownerState.severity ?? "success"].main },
+            }),
+          }),
         },
       },
       MuiSnackbarContent: {
