@@ -91,6 +91,7 @@ Archivos: [`common/NavBar.jsx`](../plantillas/ciudad-digital/src/common/NavBar.j
   - `.cd-brand__sup`: 0.56rem, peso 600, `letter-spacing .16em`, color `--cd-accent`, en MAYÚSCULAS;
   - `.cd-brand__nombre`: 1.3rem, peso 700, color `--cd-accent-fuerte`.
 - A la derecha van el botón de tema (luna/sol) y la "píldora" de usuario. La píldora muestra el nombre (se oculta en mobile), un avatar de 32px con las iniciales y una flecha. Al tocarla abre un menú de vidrio con "Cerrar Sesión".
+- El logo con la marca es un botón que lleva al inicio de la app. La ruta se configura en `MARCA.inicio` (por defecto `/home`).
 - Las dos palabras de marca se configuran en [`common/marca.js`](../plantillas/ciudad-digital/src/common/marca.js).
 - Al imprimir no aparece (`ocultarAlImprimir`).
 
