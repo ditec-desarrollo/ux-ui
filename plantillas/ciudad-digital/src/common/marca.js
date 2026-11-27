@@ -10,6 +10,7 @@ export const MARCA = {
   superior: "NOMBRE", // ej: "MOVILIDAD", "MAPA", "ATENCIÓN"
   nombre: "App", // ej: "Urbana", "Interactivo", "Ciudadana"
   alt: "Municipalidad de San Miguel de Tucumán",
+  inicio: "/home", // ruta a la que lleva el logo del header (ej: "/", "/home")
 };
 
 // Ítems del menú lateral. TODO: reemplazar por las rutas reales de la app.

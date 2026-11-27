@@ -1,5 +1,6 @@
 import SideBar from "./SideBar";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import NavBarEsqueleto from "../components/Esqueletos/NavBarEsqueleto";
 import "./Navbar.css";
 import { Avatar, IconButton, ListItemIcon, Menu, MenuItem } from "@mui/material";
@@ -31,6 +32,7 @@ const iniciales = (nombre = "") =>
 // eslint-disable-next-line react/prop-types
 export default function NavBar({ autenticado, cargando, nombreUsuario = "", sesion, itemsUsuario = [], onCerrarSesion }) {
   const { modoNocturno, alternarModoNocturno } = useTema();
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleMenu = (event) => {
@@ -53,13 +55,20 @@ export default function NavBar({ autenticado, cargando, nombreUsuario = "", sesi
       <div className="cd-nav__inner cd-nav__inner--ancho">
         <SideBar sesion={sesion} />
 
-        <span className="cd-brand" style={{ cursor: "default" }}>
+        {/* El logo lleva al inicio de la app (MARCA.inicio en marca.js) */}
+        <button
+          type="button"
+          className="cd-brand"
+          onClick={() => navigate(MARCA.inicio ?? "/")}
+          aria-label="Ir al inicio"
+          title="Ir al inicio"
+        >
           <img src={isotipo} alt={MARCA.alt} />
           <span className="cd-brand__texto">
             <span className="cd-brand__sup">{MARCA.superior}</span>
             <span className="cd-brand__nombre">{MARCA.nombre}</span>
           </span>
-        </span>
+        </button>
 
         <div className="cd-nav__derecha">
           <IconButton
